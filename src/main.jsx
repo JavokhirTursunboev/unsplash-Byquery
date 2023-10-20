@@ -5,7 +5,7 @@ import App from "./App";
 import ContextFunc from "./context";
 import "./index.css";
 
-const queryClient = QueryClient();
+const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ContextFunc>
     <QueryClientProvider client={queryClient}>

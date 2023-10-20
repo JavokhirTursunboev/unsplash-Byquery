@@ -1,11 +1,14 @@
 import React from "react";
+import { UseContextApp } from "./context";
 
 const SearchForm = () => {
+  const { setSearchImage } = UseContextApp();
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchValue = e.target.elements.search.value;
     if (!searchValue) return;
     console.log(searchValue);
+    setSearchImage(searchValue);
   };
   return (
     <section>

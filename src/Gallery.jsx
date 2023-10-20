@@ -1,13 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
+import { UseContextApp } from "./context";
 const url =
-  "https://api.unsplash.com/search/photos?client_id=5tYOQSMJU4ViQEf2_O7a2_syq1NppI7j_isSxBVpFAo&query=horse";
+  "https://api.unsplash.com/search/photos?client_id=5tYOQSMJU4ViQEf2_O7a2_syq1NppI7j_isSxBVpFAo";
 const Gallery = () => {
+  const { searchImage } = UseContextApp();
   const response = useQuery({
-    queryKey: ["images"],
+    queryKey: ["images", searchImage],
     queryFn: async () => {
-      const result = await axios.get(url);
+      const result = await axios.get(`${url}&query=${searchImage}`);
       return result;
     },
   });

@@ -2,8 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import { UseContextApp } from "./context";
-const url =
-  "https://api.unsplash.com/search/photos?client_id=5tYOQSMJU4ViQEf2_O7a2_syq1NppI7j_isSxBVpFAo";
+const url = `https://api.unsplash.com/search/photos?client_id=${
+  import.meta.env.VITE_API_KEY
+}`;
 const Gallery = () => {
   const { searchImage } = UseContextApp();
   const response = useQuery({
@@ -40,7 +41,7 @@ const Gallery = () => {
       </section>
     );
   }
-  console.log(results);
+
   return (
     <section className="image-container">
       {results.map((item) => {

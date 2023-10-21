@@ -7,7 +7,6 @@ const SearchForm = () => {
     e.preventDefault();
     const searchValue = e.target.elements.search.value;
     if (!searchValue) return;
-    console.log(searchValue);
     setSearchImage(searchValue);
   };
   return (
